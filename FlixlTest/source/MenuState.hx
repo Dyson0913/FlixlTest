@@ -31,6 +31,7 @@ class MenuState extends FlxState
 		add(_btnPlay);
 		_btnPlay.screenCenter();
 		
+		
 	}
 	
 	/**

@@ -6,12 +6,12 @@ import flixel.util.FlxColor;
 import flixel.plugin.MouseEventManager;
 import flixel.tweens.FlxTween;
 
-import Icon;
+
 /**
  * ...
  * @author Dyson0913
  */
-class Player extends FlxSprite
+class Card extends FlxSprite
 {
 	private var _turned:Bool = false;
 	

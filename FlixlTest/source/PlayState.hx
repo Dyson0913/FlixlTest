@@ -6,17 +6,21 @@ import flixel.FlxState;
 import flixel.text.FlxText;
 import flixel.ui.FlxButton;
 import flixel.util.FlxMath;
+import flixel.group.FlxGroup;
+import flixel.util.FlxMath;
 
-import Player;
+import Card;
+import Icon;
 
+import flixel.FlxG;
 /**
  * A FlxState which can be used for the actual gameplay.
  */
 class PlayState extends FlxState
 {
-	private var _player:Player;
-	private var _icon:Icon;
-	
+	private var _Cards:FlxGroup;
+	private var _Icons:FlxGroup;
+	private var _arr:Array<Icon> = [];
 	/**
 	 * Function that is called up when to state is created to set it up. 
 	 */
@@ -24,11 +28,46 @@ class PlayState extends FlxState
 	{
 		super.create();
 		
-		_icon = new Icon(60,60 );
-		_player = new Player(60, 60, _icon);
+		_Icons = new FlxGroup();
 		
-		add(_player);
-		add(_icon);
+		placeCoins();
+		add(_Icons);
+		
+		_Cards = new FlxGroup();
+		
+		placeCard();
+		add(_Cards);
+		
+	}
+	
+	private function placeCard():Void 
+	{
+		
+		var RowCnt:Int = 5;
+		for (j in 0...(25)) 
+		{
+			var coin:Icon = _arr[j];
+			var x:Float = FlxG.width/2  - (194*2) - (194/2)  + (j % RowCnt * 194);	
+			var y:Float = FlxG.height/2 - (194*2) - (194/2)  + Math.floor(j / RowCnt) * 194;	
+			coin.setPosition(x, y);
+			_Cards.add(new Card(x , y, coin));			
+		}
+	}
+	
+	//placeCoins(Assets.getText("assets/data/coins.csv"), Coin);
+	//private function placeCoins(CoinData:String, Sparkle:Class<FlxObject>):Void 
+	//if (Sparkle == Coin)
+	//		{
+	//			_coins.add(new Coin(Std.parseInt(coords[0]), Std.parseInt(coords[1]))); 
+	//		}
+	private function placeCoins():Void 
+	{
+		for (j in 0...(25)) 
+		{
+		  _arr.push(new Icon(0,0));
+		  _Icons.add(_arr[j]);
+		}
+		
 	}
 	
 	/**
