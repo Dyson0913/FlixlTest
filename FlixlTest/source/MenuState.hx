@@ -19,6 +19,8 @@ class MenuState extends FlxState
 {
 	private var _btnPlay:FlxButton;
 	
+	private var _btn_start:Btn;
+	
 	/**
 	 * Function that is called up when to state is created to set it up. 
 	 */
@@ -27,11 +29,14 @@ class MenuState extends FlxState
 		super.create();
 		add(new FlxText(10, 10, 100, "Hello, World!"));
 		
-		_btnPlay = new FlxButton(0, 0, "Play", clickPlay);
-		add(_btnPlay);
-		_btnPlay.screenCenter();
+		//tnPlay = new FlxButton(0, 0, "Play", clickPlay);		
+		//add(_btnPlay);
+		//_btnPlay.screenCenter();
 		
-		
+		_btn_start = new Btn(0, 0, AssetPaths.Btn__png);
+		_btn_start.setSize(603
+		add(_btn_start);
+		_btn_start.screenCenter();
 	}
 	
 	/**
