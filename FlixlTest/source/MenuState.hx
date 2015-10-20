@@ -27,16 +27,19 @@ class MenuState extends FlxState
 	override public function create():Void
 	{
 		super.create();
-		add(new FlxText(10, 10, 100, "Hello, World!"));
+		add(new FlxText(10, 10, 100, "Hello, World!",50));
 		
-		//tnPlay = new FlxButton(0, 0, "Play", clickPlay);		
+		//tnPlay = new FlxButton(0, 0, "Play", clickPlay);
 		//add(_btnPlay);
 		//_btnPlay.screenCenter();
 		
-		_btn_start = new Btn(0, 0, AssetPaths.Btn__png);
-		_btn_start.setSize(603
+		_btn_start = new Btn(0, 0, AssetPaths.Btn__png,clickPlay,null,null,null);
 		add(_btn_start);
 		_btn_start.screenCenter();
+		
+		FlxG.sound.playMusic("bg");
+		
+		
 	}
 	
 	/**
@@ -55,6 +58,23 @@ class MenuState extends FlxState
 	override public function update():Void
 	{
 		super.update();
+		for (touch in FlxG.touches.list)
+		{
+			if (touch.justPressed)
+			{
+				 
+					_btn_start.setPosition(touch.getWorldPosition().x, touch.getWorldPosition().y);
+				
+			}
+
+			if (touch.pressed)
+			{
+			}
+
+			if (touch.justReleased)
+			{
+			}
+		}
 	}	
 	
 	private function clickPlay():Void

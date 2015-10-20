@@ -15,30 +15,43 @@ class Btn extends FlxSprite
 {
 	private var _turned:Bool = false;
 	
-	private static inline var TURNING_TIME:Float = 0.2;
+	private var _onDown:Void->Void = null;
+	private var _onUp:Void->Void = null;
+	private var _onOver:Void->Void = null;
+	private var _onOut:Void->Void = null;
 	
-	public function new(X:Float=0, Y:Float=0,Graphic:Dynamic) 
+	public function new(X:Float=0, Y:Float=0,Graphic:Dynamic,?OnDown:Void->Void,?OnUp:Void->Void,?OnOver:Void->Void,?OnOut:Void->Void) 
 	{
 		super(X, Y);
 		//makeGraphic(16, 16, FlxColor.BLUE);
 		loadGraphic(Graphic, true, 0, 0);
 		
-		MouseEventManager.add(this, onDown, null, onOver, onOut);
+		_onDown = OnDown;
+		_onUp = OnUp;
+		_onOver = OnOver;
+		_onOut = OnOut;
+		
+		MouseEventManager.add(this, onDown, onUp, onOver, onOut);
 	}
 	
 	private function onDown(Sprite:FlxSprite)
 	{
-		
+		if( _onDown != null) _onDown();
+	}
+	
+	private function onUp(Sprite:FlxSprite)
+	{
+		if( _onUp != null) _onUp();
 	}
 	
 	private function onOver(Sprite:FlxSprite) 
 	{
-		
+		if( _onOver != null) _onOver();
 	}
 	
 	private function onOut(Sprite:FlxSprite)
 	{
-		
+		if( _onOut != null) _onOut();
 	}
 	
 	

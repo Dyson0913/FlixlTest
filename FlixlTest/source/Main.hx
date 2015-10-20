@@ -8,6 +8,10 @@ import flash.Lib;
 import flixel.FlxGame;
 import flixel.FlxState;
 
+#if mobile
+
+#end
+
 class Main extends Sprite 
 {
 	var gameWidth:Int = 1920; // Width of the game in pixels (might be less / more in actual pixels depending on your zoom).
@@ -51,6 +55,7 @@ class Main extends Sprite
 	
 	private function setupGame():Void
 	{
+		
 		var stageWidth:Int = Lib.current.stage.stageWidth;
 		var stageHeight:Int = Lib.current.stage.stageHeight;
 
@@ -65,4 +70,6 @@ class Main extends Sprite
 
 		addChild(new FlxGame(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen));
 	}
+ 
+
 }
