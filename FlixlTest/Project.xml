@@ -3,7 +3,7 @@
 	<!------------------------------APPLICATION SETTINGS---------------------------->
 	
 	<app title="FlixlTest" file="FlixlTest" main="Main" version="0.0.1" company="HaxeFlixel" />
-	<include path="extensions/HyperTouch-haxe3"/>
+	
 	<!--The flixel preloader is not accurate in Chrome. You can use it regularly if you embed the swf into a html file
 	<!--or you can set the actual size of your file manually at "FlxPreloaderBase-onUpdate-bytesTotal"!-->
 	<app preloader="flixel.system.FlxPreloader" />
@@ -78,7 +78,7 @@
 	
 	<!--------------------------------CUSTOM---------------------------------------->
 	<assets path="assets">
-    <music path="/music/bg.mp3" id="bg"/>
+    <music path="/music/bg.ogg" id="bg"/>
     </assets>
 	
 	<!--Place custom nodes like icons here (higher priority to override the HaxeFlixel icon)-->
