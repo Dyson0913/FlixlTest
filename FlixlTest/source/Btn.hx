@@ -5,7 +5,7 @@ import flixel.util.FlxColor;
 
 import flixel.plugin.MouseEventManager;
 import flixel.tweens.FlxTween;
-
+import flixel.FlxG;
 
 /**
  * ...
@@ -23,8 +23,10 @@ class Btn extends FlxSprite
 	public function new(X:Float=0, Y:Float=0,Graphic:Dynamic,?OnDown:Void->Void,?OnUp:Void->Void,?OnOver:Void->Void,?OnOut:Void->Void) 
 	{
 		super(X, Y);
+		FlxG.watch.add(Graphic, "x");
+		
 		//makeGraphic(16, 16, FlxColor.BLUE);
-		loadGraphic(Graphic, true, 0, 0);
+		loadGraphic(Graphic, true, 100, 100);
 		
 		_onDown = OnDown;
 		_onUp = OnUp;

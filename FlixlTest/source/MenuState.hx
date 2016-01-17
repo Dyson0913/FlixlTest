@@ -29,13 +29,13 @@ class MenuState extends FlxState
 		super.create();
 		add(new FlxText(10, 10, 100, "Hello, World!",50));
 		
-		//tnPlay = new FlxButton(0, 0, "Play", clickPlay);
-		//add(_btnPlay);
-		//_btnPlay.screenCenter();
+		_btnPlay = new FlxButton(0, 0, "Play", clickPlay);
+		add(_btnPlay);
+		_btnPlay.screenCenter();
 		
-		_btn_start = new Btn(0, 0, AssetPaths.Btn__png,clickPlay,null,null,null);
-		add(_btn_start);
-		_btn_start.screenCenter();
+		//_btn_start = new Btn(0, 0, AssetPaths.Btn__png,clickPlay,null,null,null);
+		//add(_btn_start);
+		//_btn_start.screenCenter();
 		
 		FlxG.sound.playMusic("bg");
 		
