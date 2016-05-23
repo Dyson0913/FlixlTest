@@ -3,7 +3,7 @@ package;
 import flixel.FlxSprite;
 import flixel.util.FlxColor;
 
-import flixel.plugin.MouseEventManager;
+import flixel.input.mouse.FlxMouseEventManager;
 import flixel.tweens.FlxTween;
 
 
@@ -27,7 +27,7 @@ class Card extends FlxSprite
 		
 		animation.frameIndex = 0;
 		antialiasing = true;
-		MouseEventManager.add(this, onDown, null, onOver, onOut);
+		FlxMouseEventManager.add(this, onDown, null, onOver, onOut);
 		_icon = icon;
 	}
 	
@@ -36,7 +36,7 @@ class Card extends FlxSprite
 		if (!_turned)
 		{
 			_turned = true;
-			FlxTween.tween(scale, { x: 0 }, TURNING_TIME / 2, { complete: pickCard });
+			FlxTween.tween(scale, { x: 0 }, TURNING_TIME / 2, { onComplete: pickCard });
 		}
 	}
 	
@@ -66,7 +66,7 @@ class Card extends FlxSprite
 	override public function destroy():Void 
 	{
 		// Make sure that this object is removed from the MouseEventManager for GC
-		MouseEventManager.remove(this);
+		FlxMouseEventManager.remove(this);
 		super.destroy();
 	}
 }

@@ -5,11 +5,11 @@ import flixel.FlxSprite;
 import flixel.FlxState;
 import flixel.text.FlxText;
 import flixel.ui.FlxButton;
-import flixel.util.FlxMath;
+import flixel.math.FlxMath;
 
 import flixel.util.FlxDestroyUtil;
 
-using flixel.util.FlxSpriteUtil;
+
 
 
 /**
@@ -31,7 +31,7 @@ class MenuState extends FlxState
 		
 		_btnPlay = new FlxButton(0, 0, "Play", clickPlay);
 		add(_btnPlay);
-		_btnPlay.screenCenter();
+		//_btnPlay.screenCenter();
 		
 		//_btn_start = new Btn(0, 0, AssetPaths.Btn__png,clickPlay,null,null,null);
 		//add(_btn_start);
@@ -55,9 +55,9 @@ class MenuState extends FlxState
 	/**
 	 * Function that is called once every frame.
 	 */
-	override public function update():Void
+	override public function update(elapsed:Float):Void
 	{
-		super.update();
+		super.update(elapsed);
 		for (touch in FlxG.touches.list)
 		{
 			if (touch.justPressed)

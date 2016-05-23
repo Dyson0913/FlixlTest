@@ -1,7 +1,7 @@
 package ;
 
 import flixel.FlxSprite;
-import flixel.util.FlxRandom;
+import flixel.FlxG;
 
 import flixel.tweens.FlxTween;
 /**
@@ -26,7 +26,8 @@ class Icon extends FlxSprite
 		//visible = true;
 		super.revive(); 
 		FlxTween.tween(scale, { x: 1 }, 0.2 / 2);
-		animation.frameIndex = FlxRandom.intRanged(0, 10);
+		animation.frameIndex = FlxG.random.int(0, 10);
+		
 	}
 	
 }

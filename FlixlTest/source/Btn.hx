@@ -3,7 +3,7 @@ package;
 import flixel.FlxSprite;
 import flixel.util.FlxColor;
 
-import flixel.plugin.MouseEventManager;
+import flixel.input.mouse.FlxMouseEventManager;
 import flixel.tweens.FlxTween;
 import flixel.FlxG;
 
@@ -33,7 +33,7 @@ class Btn extends FlxSprite
 		_onOver = OnOver;
 		_onOut = OnOut;
 		
-		MouseEventManager.add(this, onDown, onUp, onOver, onOut);
+		FlxMouseEventManager.add(this, onDown, onUp, onOver, onOut);
 	}
 	
 	private function onDown(Sprite:FlxSprite)
@@ -60,8 +60,8 @@ class Btn extends FlxSprite
 	
 	override public function destroy():Void 
 	{
-		// Make sure that this object is removed from the MouseEventManager for GC
-		MouseEventManager.remove(this);
+		// Make sure that this object is removed from the MouseEventManager for GC		
+		FlxMouseEventManager.remove(this);
 		super.destroy();
 	}
 }
